@@ -18,3 +18,27 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  font-weight: 400;
+}
+
+.list-img {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.info-img {
+  margin-right: 10px;
+  border: 1px solid black;
+  border-radius: 20px;
+}

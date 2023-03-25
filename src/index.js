@@ -8,7 +8,7 @@ const DEBOUNCE_DELAY = 300;
 const refs = {
   searchBox: document.querySelector('#search-box'),
   countryList: document.querySelector('.country-list'),
-  countryInfo: document.querySelector('country-info')
+  countryInfo: document.querySelector('.country-info')
 };
 
 refs.searchBox.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
@@ -35,8 +35,9 @@ function renderCountries(countries) {
   };
 
   if (countries.length > 1 && countries.length <= 10) {
+    clearCountryInfo();
     const markupList = countries.map(({ name, flags }) => {
-      return `<li><img src="${flags.svg}" alt="${flags.alt}" width="50">${name.official}</li>`;
+      return `<li><img src="${flags.svg}" alt="${flags.alt}" class="list-img" width="50">${name.official}</li>`;
     })
       .join('');
     refs.countryList.insertAdjacentHTML('beforeend', markupList)
@@ -45,7 +46,7 @@ function renderCountries(countries) {
   if (countries.length === 1) {
     clearCountryList();
     const markupInfo = countries.map(({ name, capital, population, flags, languages }) => {
-      return `<img src="${flags.svg}" alt="${name.official}" width='70'>
+      return `<img src="${flags.svg}" alt="${name.official}" class="info-img" width='200'>
         <h1 class="country-item-name">${name.official}</h1>
         <p class="country-item-info">Capital: ${capital}</p>
         <p class="country-item-info">Population: ${population}</p>
